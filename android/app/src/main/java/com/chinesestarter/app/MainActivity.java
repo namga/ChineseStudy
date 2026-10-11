@@ -2,6 +2,15 @@ package com.chinesestarter.app;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.provider.Settings;
+import java.util.Calendar;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioAttributes;
@@ -68,6 +77,32 @@ public class MainActivity extends Activity {
         webView.loadUrl("file:///android_asset/web/index.html");
     }
 
+
+    private void scheduleDailyReminder(boolean enabled, int hour, int minute) {
+        if (enabled && Build.VERSION.SDK_INT >= 33 && checkSelfPermission("android.permission.POST_NOTIFICATIONS") != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, 1002);
+        }
+        AlarmManager alarms = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Intent intent = new Intent(this, DailyReminderReceiver.class);
+        PendingIntent pending = PendingIntent.getBroadcast(this, 6107, intent,
+            PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        if (alarms == null) return;
+        if (!enabled) {
+            alarms.cancel(pending);
+            getSharedPreferences("learning_reminder", MODE_PRIVATE).edit().putBoolean("enabled", false).apply();
+            jsCallback("onReminderScheduled", "off");
+            return;
+        }
+        Calendar next = Calendar.getInstance();
+        next.set(Calendar.HOUR_OF_DAY, Math.max(0, Math.min(23, hour)));
+        next.set(Calendar.MINUTE, Math.max(0, Math.min(59, minute)));
+        next.set(Calendar.SECOND, 0); next.set(Calendar.MILLISECOND, 0);
+        if (next.getTimeInMillis() <= System.currentTimeMillis()) next.add(Calendar.DAY_OF_YEAR, 1);
+        alarms.setInexactRepeating(AlarmManager.RTC_WAKEUP, next.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pending);
+        getSharedPreferences("learning_reminder", MODE_PRIVATE).edit().putBoolean("enabled", true).putInt("hour", hour).putInt("minute", minute).apply();
+        jsCallback("onReminderScheduled", String.format(Locale.US, "%02d:%02d", hour, minute));
+    }
+
     private void initTts() {
         tts = new TextToSpeech(getApplicationContext(), status -> {
             if (status != TextToSpeech.SUCCESS || tts == null) {
@@ -129,6 +164,9 @@ public class MainActivity extends Activity {
                     requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_AUDIO);
                 } else startChineseRecognition();
             });
+        }
+        @JavascriptInterface public void setDailyReminder(boolean enabled, int hour, int minute) {
+            runOnUiThread(() -> scheduleDailyReminder(enabled, hour, minute));
         }
         @JavascriptInterface public String diagnostics() {
             return "ttsCreated=" + (tts != null) + ";ttsReady=" + ttsReady +

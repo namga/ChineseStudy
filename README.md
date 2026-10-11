@@ -31,3 +31,13 @@ The Android app uses native Android TextToSpeech for Mandarin playback and Andro
 - Improved microphone error messages and recognition lifecycle cleanup.
 - Please build a fresh APK after replacing the repository files. Existing APKs do not receive source changes automatically.
 - Device requirements: an installed/enabled Mandarin TTS voice for audio playback, and an installed/enabled speech recognition service plus microphone permission for recognition. These services can be missing on some Android builds.
+
+
+## Learning roadmap (v6)
+- Start Learning opens the Learning Path screen instead of the vocabulary tab.
+- Choose Vietnamese–Chinese or English–Chinese, a level, study frequency, and any of 10 topics.
+- Three levels contain 20 lessons each; review tests are available after each block of five lessons.
+- Placement check suggests a level, vocabulary can be marked learned and annotated with personal notes, and progress is saved locally.
+- Android APK includes a daily reminder scheduler; allow notifications on Android 13+. Android reminders use an approximate daily alarm to respect power-saving restrictions.
+
+After pushing to GitHub, run **Actions → Build Android debug APK**. The APK is an artifact named `chinese-starter-debug-apk`.
