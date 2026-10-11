@@ -41,3 +41,10 @@ The Android app uses native Android TextToSpeech for Mandarin playback and Andro
 - Android APK includes a daily reminder scheduler; allow notifications on Android 13+. Android reminders use an approximate daily alarm to respect power-saving restrictions.
 
 After pushing to GitHub, run **Actions → Build Android debug APK**. The APK is an artifact named `chinese-starter-debug-apk`.
+
+
+## v8 navigation update
+- Opening a lesson now replaces the lesson list with a dedicated full-screen lesson view.
+- Review tests also open in a dedicated view.
+- Back-to-list and close controls restore the lesson list without jumping through a long page.
+- Android bundled WebView assets are synchronized with the web source.

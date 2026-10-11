@@ -24,3 +24,13 @@ button{min-height:42px}
 .path-screen{display:none!important}.path-screen.active{display:block!important}.path-grid.path-screen.active{display:grid!important}
 .unit-switch{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:15px 0 8px}.unit-btn{border:1px solid var(--line);background:var(--bg);color:var(--text);padding:9px 5px;border-radius:12px;font-size:12px;font-weight:700}.unit-btn.active{background:var(--soft);border-color:var(--accent);color:var(--accent)}.unit-caption{font-size:12px!important;margin:0 0 10px;color:var(--muted)}.lesson-list{max-height:none}
 @media(max-width:720px){.level-switch{gap:7px}.level-chip{padding:11px 9px}.level-chip.active{padding:10px 8px}.level-chip strong{font-size:12px}.level-chip small{font-size:10px}.learning-controls{grid-template-columns:1fr}.learning-controls .control-card:nth-child(2){display:none}.learning-subnav{top:4px}.subnav-btn{font-size:12px;padding:10px 4px}.unit-switch{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.unit-btn{font-size:11px;padding:9px 2px}}
+
+/* v8: lessons and review tests open as dedicated screens, not inline scroll targets */
+.lesson-screen{min-height:calc(100dvh - 34px);background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(16px,4vw,28px);box-shadow:var(--shadow);margin:12px 0 24px;animation:fade .18s ease}
+.lesson-screen-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:18px}
+.lesson-screen .section-head{margin:12px 0 20px}
+.lesson-screen #lessonTitle,.lesson-screen #testTitle{font-size:clamp(24px,5vw,34px)}
+.lesson-screen #lessonContent>p{margin:12px 0 20px}
+.lesson-screen .lesson-vocab{margin:12px 0 20px}
+.lesson-screen .lesson-practice{margin-top:22px}
+@media(max-width:720px){.lesson-screen{min-height:calc(100dvh - 24px);padding:16px 13px;border-radius:18px;margin:8px 0 18px}.lesson-screen-top .secondary{font-size:12px;padding:9px 11px}.lesson-screen .section-head{flex-direction:row;align-items:flex-start;gap:8px}.lesson-screen .lesson-vocab{grid-template-columns:1fr}.lesson-screen .hanzi.small-hanzi{font-size:42px}}
