@@ -45,3 +45,4 @@ body.learning-mode #learning .lesson-screen{margin-top:8px}
 body.learning-mode #learning .lesson-screen-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;top:0;padding:8px 0 12px;background:var(--bg);z-index:5}
 body.learning-mode #learning .lesson-word{margin-bottom:14px}
 @media(max-width:720px){body.learning-mode main{padding:8px 12px 24px}body.learning-mode #learning .section-head{margin:14px 0}}
+.learning-top-actions{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:16px;position:relative;z-index:2}.learning-top-actions button{min-height:42px}.lesson-screen{scroll-margin-top:14px}#placementResult:empty{display:none}.placement-box{padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--card)}.placement-box .test-option{display:flex;gap:10px;align-items:center;padding:12px;margin:8px 0;border:1px solid var(--line);border-radius:12px}
