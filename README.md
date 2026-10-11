@@ -48,3 +48,8 @@ After pushing to GitHub, run **Actions → Build Android debug APK**. The APK is
 - Review tests also open in a dedicated view.
 - Back-to-list and close controls restore the lesson list without jumping through a long page.
 - Android bundled WebView assets are synchronized with the web source.
+
+
+## HSK vocabulary update (v11)
+
+Vocabulary practice and lesson content now use HSK-aligned packs mapped to the selected level: Beginner → HSK 1, Intermediate → HSK 2–3, Advanced → HSK 4. This package includes a curated starter pack of 30 entries per HSK level (120 source entries before duplicate consolidation), with Vietnamese meanings and example prompts. It is an educational starter subset, not a complete official HSK syllabus export. Vocabulary pack was curated from commonly taught HSK vocabulary; pinyin and meanings should be reviewed by a Mandarin instructor before exam-critical use.
