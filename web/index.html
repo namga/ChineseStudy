@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#168b72"><meta name="description" content="Learn beginner Mandarin through vocabulary, speaking, writing and real-life conversations.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css">
+<title>Chinese Starter · Mandarin for real life</title>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo">汉</div><div><strong>Chinese Starter</strong><small>Mandarin for real life · 初级中文</small></div></div>
+  <button id="settingsBtn" class="icon-btn" aria-label="Settings">⚙</button>
+</header>
+<main>
+<section class="hero">
+  <div><span class="eyebrow">YOUR DAILY 10-MINUTE PRACTICE</span><h1>你好！Ready to speak Chinese?</h1><p>Start with useful words, build confidence, and practise conversations you can actually use.</p><div class="hero-actions"><button class="primary" data-go="vocab">Start learning <span>→</span></button><span class="hero-note">零基础 · Beginner friendly</span></div></div>
+  <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="speech">你好！<small>Nǐ hǎo!</small></div><div class="book">中文</div><div class="plant">✦</div></div>
+</section>
+<section class="stats">
+ <div class="stat"><span class="stat-icon">📚</span><div><strong id="wordsStat">0</strong><small>Words learned</small></div></div>
+ <div class="stat"><span class="stat-icon">💬</span><div><strong id="dialogsStat">0</strong><small>Dialogues practised</small></div></div>
+ <div class="stat"><span class="stat-icon">🔥</span><div><strong id="streakStat">0</strong><small>Day streak</small></div></div>
+</section>
+<nav class="tabs" aria-label="Learning sections">
+<button class="tab active" data-tab="vocab">📖 Vocabulary</button><button class="tab" data-tab="speaking">🎙 Speaking</button><button class="tab" data-tab="writing">✍️ Writing</button><button class="tab" data-tab="conversation">🗣 Conversations</button>
+</nav>
+<section id="vocab" class="panel active">
+ <div class="section-head"><div><span class="eyebrow">BUILD YOUR WORD BANK</span><h2>Vocabulary practice</h2><p>Learn the word, hear it, then reveal the meaning.</p></div><select id="vocabCategory" aria-label="Vocabulary category"><option value="all">All topics</option><option value="basics">Basics</option><option value="daily">Daily life</option><option value="work">At work</option><option value="meeting">Customer meetings</option></select></div>
+ <div class="flashcard" id="flashcard"><span id="wordTag" class="pill">BASICS</span><div id="hanzi" class="hanzi">你好</div><div id="pinyin" class="pinyin">nǐ hǎo</div><div id="meaning" class="meaning hidden">Hello</div><div id="example" class="example hidden"></div><div class="card-actions"><button id="audioBtn" class="secondary">🔊 Listen</button><button id="revealBtn" class="primary">Reveal meaning</button></div></div>
+ <div class="practice-nav"><button id="prevWord" class="secondary">← Previous</button><span id="wordCounter">1 / 1</span><button id="nextWord" class="secondary">Next →</button></div>
+ <div class="inline-actions"><button id="knownBtn" class="outline">✓ I know this word</button><button id="shuffleBtn" class="outline">↻ Shuffle</button></div>
+</section>
+<section id="speaking" class="panel">
+ <div class="section-head"><div><span class="eyebrow">LISTEN · REPEAT · IMPROVE</span><h2>Speaking studio</h2><p>Listen to a phrase, say it aloud, and check your confidence.</p></div></div>
+ <div class="practice-card"><label for="speakTopic">Choose a phrase</label><select id="speakTopic"></select><div id="speakHanzi" class="hanzi medium">请再说一遍。</div><div id="speakPinyin" class="pinyin">qǐng zài shuō yí biàn</div><p id="speakMeaning" class="meaning">Please say that again.</p><div class="button-row"><button id="speakAudio" class="primary">🔊 Listen</button><button id="micBtn" class="secondary">🎙 Try speaking</button></div><p id="speechResult" class="feedback" aria-live="polite">Tip: speak slowly and clearly. Speech recognition varies by browser and device.</p><div class="self-rating"><span>How did it feel?</span><button data-rating="again">Try again</button><button data-rating="good">Good</button><button data-rating="easy">Easy</button></div></div>
+ <div class="tip-box">💡 <strong>Beginner tip:</strong> Mandarin has four main tones. Copy the rhythm first; accuracy will improve with repetition.</div>
+</section>
+<section id="writing" class="panel">
+ <div class="section-head"><div><span class="eyebrow">READ · COPY · RECALL</span><h2>Writing practice</h2><p>Copy the characters and test your memory.</p></div></div>
+ <div class="practice-card writing-card"><div class="writing-top"><div><span class="pill">COPY THIS</span><div id="writeHanzi" class="hanzi">谢谢</div><div id="writePinyin" class="pinyin">xiè xie</div><p id="writeMeaning" class="meaning">Thank you</p></div><button id="writeAudio" class="secondary">🔊 Hear it</button></div><div class="writing-grid"><div class="trace"><span class="muted">Character guide</span><div id="traceHanzi">谢 谢</div><small>Look at each character's shape and order.</small></div><div><label for="writeInput">Write the Chinese characters</label><input id="writeInput" autocomplete="off" placeholder="Type the characters here"><label for="writePinyinInput">Or type the pinyin</label><input id="writePinyinInput" autocomplete="off" placeholder="e.g. xie xie"><button id="checkWriting" class="primary full">Check my answer</button><p id="writeFeedback" class="feedback" aria-live="polite"></p></div></div><button id="nextWriting" class="secondary">Next writing prompt →</button></div>
+</section>
+<section id="conversation" class="panel">
+ <div class="section-head"><div><span class="eyebrow">REAL CHINESE FOR REAL SITUATIONS</span><h2>Conversation role-play</h2><p>Read both roles, listen to each line, and practise speaking naturally.</p></div></div>
+ <div class="conversation-layout"><aside class="scenario-list" id="scenarioList"></aside><article class="dialogue"><div class="dialogue-head"><div><span class="pill" id="scenarioTag">DAILY LIFE</span><h3 id="scenarioTitle">Meeting someone</h3><p id="scenarioDesc">Introduce yourself politely.</p></div><button id="playAll" class="secondary">▶ Play lines</button></div><div id="dialogueLines" class="dialogue-lines"></div><div class="roleplay"><label for="roleSelect">Practise as</label><select id="roleSelect"><option value="A">Person A</option><option value="B">Person B</option></select><button id="roleplayBtn" class="primary">Start role-play</button><p id="roleplayPrompt" class="feedback">Choose a role and practise your lines aloud.</p></div><button id="completeDialogue" class="outline full">✓ Mark conversation complete</button></article></div>
+</section>
+</main>
+<footer>Made for steady progress, one useful phrase at a time. <span>慢慢来 · Take it step by step.</span></footer>
+<dialog id="settingsDialog"><form method="dialog" id="settingsForm"><div class="dialog-title"><div><span class="eyebrow">MAKE IT YOURS</span><h2>Settings</h2></div><button class="icon-btn" value="cancel" aria-label="Close">✕</button></div><label for="themeSelect">Appearance</label><select id="themeSelect"><option value="light">Light</option><option value="dark">Dark</option></select><label for="accentSelect">Accent colour</label><select id="accentSelect"><option value="#168b72">Jade green</option><option value="#3978d4">Calm blue</option><option value="#9a62c7">Lavender</option><option value="#e17848">Warm orange</option><option value="#d04e78">Rose</option></select><p class="muted">Your learning progress and preferences are stored on this device.</p><button class="primary full" id="saveSettings" value="default">Save settings</button></form></dialog>
+<script src="app.js"></script>
+</body></html>
