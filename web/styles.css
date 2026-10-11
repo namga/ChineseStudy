@@ -34,3 +34,14 @@ button{min-height:42px}
 .lesson-screen .lesson-vocab{margin:12px 0 20px}
 .lesson-screen .lesson-practice{margin-top:22px}
 @media(max-width:720px){.lesson-screen{min-height:calc(100dvh - 24px);padding:16px 13px;border-radius:18px;margin:8px 0 18px}.lesson-screen-top .secondary{font-size:12px;padding:9px 11px}.lesson-screen .section-head{flex-direction:row;align-items:flex-start;gap:8px}.lesson-screen .lesson-vocab{grid-template-columns:1fr}.lesson-screen .hanzi.small-hanzi{font-size:42px}}
+
+/* Focus mode: once learning starts, remove the landing page and global dashboard. */
+body.learning-mode .hero,body.learning-mode .stats,body.learning-mode .tabs,body.learning-mode main>section.panel:not(#learning){display:none!important}
+body.learning-mode main{padding-top:14px}
+body.learning-mode #learning{display:block!important;scroll-margin-top:12px}
+body.learning-mode #learning>.section-head,body.learning-mode #learning>.level-switch,body.learning-mode #learning>.learning-controls,body.learning-mode #learning>.path-grid,body.learning-mode #learning>.learning-subnav,body.learning-mode #learning>.topic-card{display:none}
+body.learning-mode #learning .lesson-screen:not(.hidden){display:block}
+body.learning-mode #learning .lesson-screen{margin-top:8px}
+body.learning-mode #learning .lesson-screen-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;top:0;padding:8px 0 12px;background:var(--bg);z-index:5}
+body.learning-mode #learning .lesson-word{margin-bottom:14px}
+@media(max-width:720px){body.learning-mode main{padding:8px 12px 24px}body.learning-mode #learning .section-head{margin:14px 0}}
