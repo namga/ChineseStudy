@@ -20,6 +20,3 @@ The Android WebView loads bundled local assets so core lessons work offline. Pro
 
 ## Progress
 Vocabulary learned, completed dialogues, ratings, and daily practice activity are stored locally on the device. This is a starter curriculum and is not a complete HSK course.
-
-## v3 audio and microphone fix
-The Android app uses native Android TextToSpeech for Mandarin playback and Android SpeechRecognizer (`zh-CN`) for speaking practice. The microphone permission is requested when the user taps the microphone. If audio does not play, install/enable a Mandarin voice in Android Text-to-speech settings. If recording cannot start, enable a speech recognition service (such as Google Speech Services) and allow microphone permission. Browser-only use still depends on browser support and HTTPS for speech recognition.
