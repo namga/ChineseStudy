@@ -1,28 +1,25 @@
-# Chinese Starter — Beginner Chinese Learning App
+# Chinese Starter v2 — Beginner Mandarin Learning App
 
-A responsive offline-first web app / PWA for beginner Mandarin (Simplified Chinese), with an Android Studio WebView wrapper and GitHub Actions workflow to build a debug APK.
+A friendly, responsive Mandarin starter app for Web/PWA and Android. Includes a cute panda reading a Chinese book icon, an expanded searchable vocabulary set, speaking/listening practice, writing checks, and practical conversation role-play.
 
-## Features
-- Vocabulary cards with Hanzi, pinyin, English meaning, examples, and audio pronunciation (device/browser Chinese speech voice when available).
-- Speaking practice: listen and repeat, optional microphone speech recognition when supported by the browser.
-- Writing practice: trace/copy Hanzi, type pinyin/English meaning, and self-check.
-- Conversation role-play for daily life, workplace tasks, and customer meetings.
-- Progress saved locally on the device, daily streak and completion counts.
-- Light/dark themes and accent color selection.
-- PWA manifest and service worker for offline use after first load.
+## What's new in v2
+- Cute panda-with-book app icon for the web app and Android launcher.
+- Expanded beginner vocabulary across greetings, daily life, food, shopping, directions, office tasks, meetings, and customer service.
+- Search vocabulary by Chinese characters, pinyin, English meaning, or example text.
+- Added role-play scenarios: phone calls, asking a colleague for help, project updates, customer requirements, price negotiation, lunch plans, and complaint follow-up.
+- Easier mobile controls, more comfortable tap targets, clearer scenario guidance, responsive search/filter controls.
+- Updated offline cache version to refresh new assets.
 
-## Run as a web app
-Open `web/index.html` in a browser, or serve the `web` folder from any static host (GitHub Pages, Netlify, etc.). For PWA install/offline caching, use HTTPS or localhost.
+## Run on the web
+Open `web/index.html`, or host the `web/` folder on GitHub Pages or Netlify. PWA install/offline caching requires HTTPS or localhost.
 
-## Build Android APK with GitHub Actions
-1. Push the ZIP contents to a GitHub repository (the `.github/` and `android/` folders must be at repository root).
-2. Open **Actions** and run **Build Android debug APK** (or push to `main`).
-3. Download `app-debug.apk` from the workflow artifact named `chinese-starter-debug-apk`.
+## Build an Android debug APK
+Push the ZIP contents to GitHub with `.github/`, `android/`, and `web/` at the repository root. In **Actions**, run **Build Android debug APK**. Download artifact `chinese-starter-debug-apk`.
 
-The Android project uses a local WebView asset bundle, so the main lessons work offline. Microphone speech recognition depends on Android WebView/device support and permissions; pronunciation audio depends on an installed Chinese speech voice.
+The Android WebView loads bundled local assets so core lessons work offline. Pronunciation uses the device/browser Chinese speech voice. Microphone speech recognition varies by Android WebView and device support; test permissions on the target device.
 
-## Local Android build
-Open `android/` in Android Studio and sync Gradle, then build the `app` debug variant.
+## Progress
+Vocabulary learned, completed dialogues, ratings, and daily practice activity are stored locally on the device. This is a starter curriculum and is not a complete HSK course.
 
-## Content scope
-This is a starter curriculum rather than a complete HSK course. Vocabulary and dialogues can be extended in `web/app.js`.
+## v3 audio and microphone fix
+The Android app uses native Android TextToSpeech for Mandarin playback and Android SpeechRecognizer (`zh-CN`) for speaking practice. The microphone permission is requested when the user taps the microphone. If audio does not play, install/enable a Mandarin voice in Android Text-to-speech settings. If recording cannot start, enable a speech recognition service (such as Google Speech Services) and allow microphone permission. Browser-only use still depends on browser support and HTTPS for speech recognition.
